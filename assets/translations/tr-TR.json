@@ -1,0 +1,7 @@
+{
+  "global": {
+    "errors": {
+      "noInternetConnection": "İnternet bağlantısı yok"
+    }
+  }
+}

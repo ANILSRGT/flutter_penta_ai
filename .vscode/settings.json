@@ -1,0 +1,23 @@
+{
+  "emeraldwalk.runonsave": {
+    "autoClearConsole": true,
+    "commands": [
+      {
+        "match": "assets\\\\translations\\\\en-US.json$",
+        "cmd": "node ./scripts/lang.js assets/translations lib/core/localization LocaleKeys",
+        "isAsync": true,
+        "message": "Generating Translation Keys...",
+        "messageAfter": "Translation Keys Generated",
+        "autoShowOutputPanel": "always"
+      },
+      {
+        "cmd": "dart analyze",
+        "isAsync": true,
+        "message": "Analyzing...",
+        "messageAfter": "Analysis Complete",
+        "autoShowOutputPanel": "never",
+        "isBackground": true
+      }
+    ]
+  }
+}

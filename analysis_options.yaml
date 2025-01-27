@@ -1,0 +1,21 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - assets/**
+
+  errors:
+    invalid_annotation_target: ignore
+    unused_field: ignore
+    lines_longer_than_80_chars: ignore
+    unused_local_variable: ignore
+
+linter:
+  rules:
+    sort_pub_dependencies: false
+    library_private_types_in_public_api: false
+    public_member_api_docs: false
+    avoid_positional_boolean_parameters: false
+    flutter_style_todos: false

@@ -1,0 +1,1 @@
+extension ValidationExt on String? {}
