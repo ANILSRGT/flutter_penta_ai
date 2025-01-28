@@ -5,8 +5,8 @@ class _PromptToImageDetailsPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppbar(
+    return const Scaffold(
+      appBar: CustomAppbar(
         title: 'Result',
       ),
       body: _PromptToImageDetailsPageBody(),
