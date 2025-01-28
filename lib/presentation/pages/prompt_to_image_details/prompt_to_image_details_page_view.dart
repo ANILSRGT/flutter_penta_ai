@@ -1,6 +1,7 @@
 part of 'prompt_to_image_details_page.dart';
 
-class _PromptToImageDetailsPageView extends StatelessWidget {
+class _PromptToImageDetailsPageView extends StatelessWidget
+    with _PromptToImageDetailsPageViewMixin {
   const _PromptToImageDetailsPageView({
     required this.model,
   });
@@ -13,7 +14,11 @@ class _PromptToImageDetailsPageView extends StatelessWidget {
       appBar: const CustomAppbar(
         title: 'Result',
       ),
-      body: _PromptToImageDetailsPageBody(model: model),
+      body: _PromptToImageDetailsPageBody(
+        model: model,
+        onImageDownload: (image) => _onDownloadImage(context, image),
+        onImageShare: (image) => _onShareImage(context, image),
+      ),
     );
   }
 }

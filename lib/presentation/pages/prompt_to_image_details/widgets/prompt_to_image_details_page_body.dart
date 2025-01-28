@@ -3,9 +3,13 @@ part of '../prompt_to_image_details_page.dart';
 class _PromptToImageDetailsPageBody extends StatelessWidget {
   const _PromptToImageDetailsPageBody({
     required this.model,
+    required this.onImageDownload,
+    required this.onImageShare,
   });
 
   final TextToImagesModel model;
+  final void Function(Uint8List image) onImageDownload;
+  final void Function(Uint8List image) onImageShare;
 
   @override
   Widget build(BuildContext context) {
@@ -72,13 +76,13 @@ class _PromptToImageDetailsPageBody extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: AppElevatedButton.outlined(
-                                  onPressed: () {},
+                                  onPressed: () => onImageShare(model.image),
                                   child: const Text('Share'),
                                 ),
                               ),
                               Expanded(
                                 child: AppElevatedButton.primary(
-                                  onPressed: () {},
+                                  onPressed: () => onImageDownload(model.image),
                                   child: const Text('Download'),
                                 ),
                               ),

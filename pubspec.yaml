@@ -43,6 +43,8 @@ dependencies:
   # Utils
   device_info_plus: ^11.2.1
   android_id: ^0.4.0
+  share_plus: ^10.1.4
+  flutter_file_dialog: ^3.0.2
 
   # Custom
   penta_core:
