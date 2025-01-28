@@ -18,8 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$TextToImagesModel {
   String get deviceId => throw _privateConstructorUsedError;
   String get prompt => throw _privateConstructorUsedError;
-  String get image => throw _privateConstructorUsedError;
+  Uint8List get image => throw _privateConstructorUsedError;
   bool get isPublic => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Create a copy of TextToImagesModel
   /// with the given fields replaced by the non-null parameter values.
@@ -34,7 +35,12 @@ abstract class $TextToImagesModelCopyWith<$Res> {
           TextToImagesModel value, $Res Function(TextToImagesModel) then) =
       _$TextToImagesModelCopyWithImpl<$Res, TextToImagesModel>;
   @useResult
-  $Res call({String deviceId, String prompt, String image, bool isPublic});
+  $Res call(
+      {String deviceId,
+      String prompt,
+      Uint8List image,
+      bool isPublic,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -56,6 +62,7 @@ class _$TextToImagesModelCopyWithImpl<$Res, $Val extends TextToImagesModel>
     Object? prompt = null,
     Object? image = null,
     Object? isPublic = null,
+    Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
       deviceId: null == deviceId
@@ -69,11 +76,15 @@ class _$TextToImagesModelCopyWithImpl<$Res, $Val extends TextToImagesModel>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uint8List,
       isPublic: null == isPublic
           ? _value.isPublic
           : isPublic // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -86,7 +97,12 @@ abstract class _$$TextToImagesModelImplCopyWith<$Res>
       __$$TextToImagesModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String deviceId, String prompt, String image, bool isPublic});
+  $Res call(
+      {String deviceId,
+      String prompt,
+      Uint8List image,
+      bool isPublic,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -106,6 +122,7 @@ class __$$TextToImagesModelImplCopyWithImpl<$Res>
     Object? prompt = null,
     Object? image = null,
     Object? isPublic = null,
+    Object? createdAt = null,
   }) {
     return _then(_$TextToImagesModelImpl(
       deviceId: null == deviceId
@@ -119,11 +136,15 @@ class __$$TextToImagesModelImplCopyWithImpl<$Res>
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Uint8List,
       isPublic: null == isPublic
           ? _value.isPublic
           : isPublic // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -135,7 +156,8 @@ class _$TextToImagesModelImpl extends _TextToImagesModel {
       {required this.deviceId,
       required this.prompt,
       required this.image,
-      required this.isPublic})
+      required this.isPublic,
+      required this.createdAt})
       : super._();
 
   @override
@@ -143,13 +165,15 @@ class _$TextToImagesModelImpl extends _TextToImagesModel {
   @override
   final String prompt;
   @override
-  final String image;
+  final Uint8List image;
   @override
   final bool isPublic;
+  @override
+  final DateTime createdAt;
 
   @override
   String toString() {
-    return 'TextToImagesModel(deviceId: $deviceId, prompt: $prompt, image: $image, isPublic: $isPublic)';
+    return 'TextToImagesModel(deviceId: $deviceId, prompt: $prompt, image: $image, isPublic: $isPublic, createdAt: $createdAt)';
   }
 
   @override
@@ -160,14 +184,16 @@ class _$TextToImagesModelImpl extends _TextToImagesModel {
             (identical(other.deviceId, deviceId) ||
                 other.deviceId == deviceId) &&
             (identical(other.prompt, prompt) || other.prompt == prompt) &&
-            (identical(other.image, image) || other.image == image) &&
+            const DeepCollectionEquality().equals(other.image, image) &&
             (identical(other.isPublic, isPublic) ||
-                other.isPublic == isPublic));
+                other.isPublic == isPublic) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, deviceId, prompt, image, isPublic);
+  int get hashCode => Object.hash(runtimeType, deviceId, prompt,
+      const DeepCollectionEquality().hash(image), isPublic, createdAt);
 
   /// Create a copy of TextToImagesModel
   /// with the given fields replaced by the non-null parameter values.
@@ -183,8 +209,9 @@ abstract class _TextToImagesModel extends TextToImagesModel {
   const factory _TextToImagesModel(
       {required final String deviceId,
       required final String prompt,
-      required final String image,
-      required final bool isPublic}) = _$TextToImagesModelImpl;
+      required final Uint8List image,
+      required final bool isPublic,
+      required final DateTime createdAt}) = _$TextToImagesModelImpl;
   const _TextToImagesModel._() : super._();
 
   @override
@@ -192,9 +219,11 @@ abstract class _TextToImagesModel extends TextToImagesModel {
   @override
   String get prompt;
   @override
-  String get image;
+  Uint8List get image;
   @override
   bool get isPublic;
+  @override
+  DateTime get createdAt;
 
   /// Create a copy of TextToImagesModel
   /// with the given fields replaced by the non-null parameter values.

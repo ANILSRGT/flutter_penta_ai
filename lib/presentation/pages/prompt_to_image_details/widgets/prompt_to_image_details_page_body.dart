@@ -1,7 +1,11 @@
 part of '../prompt_to_image_details_page.dart';
 
 class _PromptToImageDetailsPageBody extends StatelessWidget {
-  const _PromptToImageDetailsPageBody();
+  const _PromptToImageDetailsPageBody({
+    required this.model,
+  });
+
+  final TextToImagesModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -36,14 +40,31 @@ class _PromptToImageDetailsPageBody extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius:
                                       context.ext.radius.border.all.xl3,
-                                  child: CustomNetworkImage(
-                                    imageUrl:
-                                        'https://picsum.photos/1080/1920?random=${DateTime.now().millisecondsSinceEpoch}',
+                                  child: Image.memory(
+                                    model.image,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
+                          ),
+                          context.ext.sizedBox.height.xl,
+                          AppExpansionTile(
+                            backgroundColor:
+                                context.appThemeExt.appColors.darkGrey,
+                            foregroundColor:
+                                context.appThemeExt.appColors.darkGrey.onColor,
+                            title: 'Prompt',
+                            content: [
+                              Text(
+                                model.prompt,
+                                style: context.ext.theme.textTheme.bodyLarge
+                                    ?.copyWith(
+                                  color: context
+                                      .appThemeExt.appColors.darkGrey.onColor,
+                                ),
+                              ),
+                            ],
                           ),
                           context.ext.sizedBox.height.xl3,
                           Row(

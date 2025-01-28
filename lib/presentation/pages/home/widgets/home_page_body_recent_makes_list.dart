@@ -5,10 +5,18 @@ class _HomePageBodyRecentMakesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final images = context.watch<TextToImagesNotifider>().textToImages;
+
+    if (images?.isEmpty ?? true) {
+      return const Center(
+        child: Text('No images found'),
+      );
+    }
+
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 6,
+      itemCount: images!.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: context.ext.screen.width ~/ 200,
         crossAxisSpacing: context.ext.values.lg,
@@ -16,7 +24,8 @@ class _HomePageBodyRecentMakesList extends StatelessWidget {
         childAspectRatio: 0.9,
       ),
       itemBuilder: (context, index) {
-        return const PromptImageCard();
+        final image = images[index];
+        return PromptImageCard(model: image);
       },
     );
   }

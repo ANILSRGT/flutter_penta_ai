@@ -72,8 +72,12 @@ class _TextToImagePromptFieldState extends State<TextToImagePromptField> {
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 175),
                     child: AppElevatedButton.primary(
-                      onPressed: () =>
-                          widget.onGenerateImage(_promptController.text),
+                      onPressed: () {
+                        final prompt = _promptController.text;
+                        widget.onGenerateImage(prompt);
+                        _promptController.clear();
+                        FocusScope.of(context).unfocus();
+                      },
                       child: const Text('Generate Image'),
                     ),
                   ),

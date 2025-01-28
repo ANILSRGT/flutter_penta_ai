@@ -8,6 +8,7 @@ import 'package:penta_ai/core/env/app_env.dart';
 import 'package:penta_ai/core/extensions/localization_ext.dart';
 import 'package:penta_ai/core/localization/locale_keys.g.dart';
 import 'package:penta_ai/core/localization/localization_manager.dart';
+import 'package:penta_ai/core/providers/text_to_images_notifider.dart';
 import 'package:penta_ai/core/providers/theme_notifier.dart';
 import 'package:penta_ai/core/router/app_router.dart';
 import 'package:penta_ai/firebase_options.dart';
@@ -36,6 +37,7 @@ Future<void> main() async {
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => ThemeNotifier()),
+          ChangeNotifierProvider(create: (_) => TextToImagesNotifider()),
         ],
         child: const _MyApp(),
       ),

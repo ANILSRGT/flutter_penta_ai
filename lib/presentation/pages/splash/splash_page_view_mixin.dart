@@ -11,6 +11,8 @@ mixin _SplashPageViewMixin
   }
 
   Future<void> _initApp() async {
+    await context.read<TextToImagesNotifider>().fetchTextToImages();
+
     await runAsyncMounted(
       () async => context.router.replaceAll([const HomeRoute()]),
     );

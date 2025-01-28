@@ -1,11 +1,9 @@
 class TextToImagesCreateParams {
   TextToImagesCreateParams({
     required this.prompt,
-    required this.image,
-    required this.isPublic,
+    this.isPublic = false,
   });
 
   final String prompt;
-  final String image;
   final bool isPublic;
 }

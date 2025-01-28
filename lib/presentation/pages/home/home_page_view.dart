@@ -8,6 +8,7 @@ class _HomePageView extends StatelessWidget with _HomePageViewMixin {
     return Scaffold(
       body: _HomePageBody(
         onGenerateImage: (prompt) => _onGenerateImage(context, prompt),
+        refreshPage: () => _refresh(context),
       ),
     );
   }

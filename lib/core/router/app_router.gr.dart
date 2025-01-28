@@ -30,10 +30,18 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PromptToImageDetailsPage]
-class PromptToImageDetailsRoute extends PageRouteInfo<void> {
-  const PromptToImageDetailsRoute({List<PageRouteInfo>? children})
-      : super(
+class PromptToImageDetailsRoute
+    extends PageRouteInfo<PromptToImageDetailsRouteArgs> {
+  PromptToImageDetailsRoute({
+    required TextToImagesModel model,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           PromptToImageDetailsRoute.name,
+          args: PromptToImageDetailsRouteArgs(
+            model: model,
+            key: key,
+          ),
           initialChildren: children,
         );
 
@@ -42,9 +50,29 @@ class PromptToImageDetailsRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const PromptToImageDetailsPage();
+      final args = data.argsAs<PromptToImageDetailsRouteArgs>();
+      return PromptToImageDetailsPage(
+        model: args.model,
+        key: args.key,
+      );
     },
   );
+}
+
+class PromptToImageDetailsRouteArgs {
+  const PromptToImageDetailsRouteArgs({
+    required this.model,
+    this.key,
+  });
+
+  final TextToImagesModel model;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'PromptToImageDetailsRouteArgs{model: $model, key: $key}';
+  }
 }
 
 /// generated route for

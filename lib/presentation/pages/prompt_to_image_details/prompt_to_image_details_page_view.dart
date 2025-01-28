@@ -1,15 +1,19 @@
 part of 'prompt_to_image_details_page.dart';
 
 class _PromptToImageDetailsPageView extends StatelessWidget {
-  const _PromptToImageDetailsPageView();
+  const _PromptToImageDetailsPageView({
+    required this.model,
+  });
+
+  final TextToImagesModel model;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppbar(
+    return Scaffold(
+      appBar: const CustomAppbar(
         title: 'Result',
       ),
-      body: _PromptToImageDetailsPageBody(),
+      body: _PromptToImageDetailsPageBody(model: model),
     );
   }
 }

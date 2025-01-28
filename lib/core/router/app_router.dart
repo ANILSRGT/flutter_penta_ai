@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:penta_ai/data/models/text_to_images/text_to_images_model.dart';
 import 'package:penta_ai/presentation/pages/home/home_page.dart';
 import 'package:penta_ai/presentation/pages/prompt_to_image_details/prompt_to_image_details_page.dart';
 import 'package:penta_ai/presentation/pages/splash/splash_page.dart';
